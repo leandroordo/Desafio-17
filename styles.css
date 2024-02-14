@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", "sans serif";
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(249, 246, 244);
+}
+
+main {
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.menu__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem -1rem;
+}
+
+.menu__itemcontainer {
+  xcursor: pointer;
+  xbox-sizing: border-box;
+  xflex: 1 0 calc(50% - 2rem);
+  xwidth: 100%;
+  flex: 1 0 calc(50% - 20px); /* Subtract double the margin from the width */
+  border: 1px solid #000;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px;
+}
+
+.xmenu__item {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background-color: #fff;
+  box-shadow: rgba(181, 129, 108, 0.8) 0px 8px 34px -25px;
+  display: flex;
+  align-items: center;
+}
+
+.menu__item-img {
+  padding: 0 0.5rem;
+}
+
+.menu__item-img > img {
+  border-radius: 1rem;
+}
+
+.menu__item-description {
+  margin: 0.5rem;
+}
+
+.xcontainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.xitem {
+  flex: 1 0 calc(50% - 260px); /* Subtract double the margin from the width */
+  border: 1px solid #000;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px; /* Add this line to add space around each item */
+}

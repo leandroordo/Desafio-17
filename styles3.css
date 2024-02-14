@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", "sans serif";
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(227, 221, 217);
+}
+
+.logo {
+  margin-bottom: 3rem;
+}
+
+main {
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 1rem -1rem;
+}
+
+.card {
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 0.75rem;
+  flex-basis: calc(50% - 2rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: rgba(181, 129, 108, 0.8) 0px 8px 34px -25px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.details {
+  padding: 0.5rem;
+}
+
+.card__title {
+  margin-bottom: 6px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.card__description {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.card__price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 2px;
+  color: #8b0e0e;
+}
+
+.card__image {
+  border-radius: 0.5rem;
+}
+
+.mipedido__container {
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 1.25rem;
+  flex-basis: calc(50% - 2rem);
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: rgba(181, 129, 108, 0.8) 0px 8px 34px -25px;
+  border-radius: 0.5rem;
+}
+
+.mipedido__container h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.mipedido__details {
+  display: grid;
+  grid-template-columns: 6fr 1fr 2fr;
+  row-gap: 1rem;
+}
+
+.mipedido__details-precio {
+  justify-self: end;
+}
+.mipedido__details-total {
+  font-weight: 700;
+  color: #8b0e0e;
+}
+
+.form__container {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+  row-gap: 1rem;
+}
+
+.input {
+}
