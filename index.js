@@ -152,4 +152,78 @@ function onCantidadChanged(input, productId) {
   }
 }
 
+/*Validaciones*/
+function validateString(input) {
+  const valor = input.value;
+
+  if (!valor || valor.trim() === "" || valor.length < 4) {
+    input.classList.add("error");
+    return false;
+  } else {
+    input.classList.remove("error");
+    return true;
+  }
+}
+
+function validateTelephone(input) {
+  var regex =
+    /^(\+)?(\s{0,3})?(\()?(\s{0,3})?(\d{1,3})?(\s{0,3})?(\))?(\s{0,3})?(-)?(\s{0,3})?(\d+)$/;
+  const phoneNumber = input.value;
+
+  const isValid =
+    regex.test(phoneNumber) &&
+    phoneNumber.length >= 6 &&
+    phoneNumber.length <= 14;
+
+  if (!isValid) {
+    input.classList.add("error");
+    return false;
+  } else {
+    input.classList.remove("error");
+    return true;
+  }
+}
+
+function validateEmail(input) {
+  var regex =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const email = String(input.value).toLowerCase();
+
+  const isValid = regex.test(input.value);
+
+  if (!isValid) {
+    input.classList.add("error");
+    return false;
+  } else {
+    input.classList.remove("error");
+    return true;
+  }
+}
+
+function validateOrder(cart) {
+  return cart.length !== 0;
+}
+
+function procesarPedido() {
+  const nombre = document.getElementById("nombre");
+  const direccion = document.getElementById("direccion");
+  const telefono = document.getElementById("telefono");
+  const email = document.getElementById("email");
+
+  if (
+    validateString(nombre) &&
+    validateString(direccion) &&
+    validateTelephone(telefono) &&
+    validateEmail(email)
+  ) {
+    if (!validateOrder(cart)) {
+      window.alert("Asegúrese de haber elegido algún producto en su pedido");
+      return;
+    }
+    window.alert(
+      "Ya hemos enviado su pedido al restaurante. Gracias por su pedido!"
+    );
+  }
+}
+
 generateProductCards();

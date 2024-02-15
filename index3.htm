@@ -8,6 +8,14 @@
   </head>
   <body>
     <main>
+      <div id="dialogBox" class="overlay">
+        <div class="dialog__content">
+          <button class="dialog__cerrar">✖</button>
+          <img src="./img/pizza.png" alt="pizza-icon" />
+          <p id="mensaje">Mensaje</p>
+          <button class="dialog__aceptar">Aceptar</button>
+        </div>
+      </div>
       <div class="logo">
         <img src="./img/Logo.png" alt="PediYa" />
       </div>
@@ -20,46 +28,25 @@
         <div class="mipedido__container">
           <h2>Mi pedido</h2>
           <div class="mipedido__details" id="order-container">
-            <div>Empanadas</div>
-            <input
-              type="number"
-              class="mipedido__details-cantidad"
-              required
-              min="0"
-              max="99"
-            />
-            <div class="mipedido__details-precio">$10.500</div>
-            <div>Pizza de muzzarela</div>
-            <input
-              type="number"
-              class="mipedido__details-cantidad"
-              required
-              min="0"
-              max="99"
-            />
-            <div class="mipedido__details-precio">$7.200</div>
-            <div class="mipedido__details-total">Total</div>
-            <div class="mipedido__details-total mipedido__details-precio">
-              $10.700
-            </div>
           </div>
         </div>
         <div class="mipedido__container">
           <h2>Facturación y envío</h2>
           <div class="form__container">
             <label for="nombre">Nombre</label>
-            <input type="text" required />
-            <label for="nombre">Dirección</label>
-            <input type="text" required />
-            <label for="nombre">Teléfono</label>
-            <input type="text" required />
-            <label for="nombre">E-mail</label>
-            <input type="email" required />
+            <input id="nombre" type="text" onblur="validateString(this)" required />
+            <label for="direccion">Dirección</label>
+            <input id="direccion" type="text" onblur="validateString(this)" required />
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" type="text" onblur="validateTelephone(this)" required />
+            <label for="email">E-mail</label>
+            <input id="email" type="email" onblur="validateEmail(this)" required />
             <input
               type="button"
               name="hacerpedido"
               class="form__submit"
               value="Hacer pedido"
+              onclick="procesarPedido()"
             />
           </div>
         </div>
