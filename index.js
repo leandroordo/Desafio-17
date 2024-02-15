@@ -217,13 +217,22 @@ function procesarPedido() {
     validateEmail(email)
   ) {
     if (!validateOrder(cart)) {
-      window.alert("Asegúrese de haber elegido algún producto en su pedido");
+      window.alert("Asegúrese de haber agregado algún producto en su pedido");
       return;
     }
-    window.alert(
-      "Ya hemos enviado su pedido al restaurante. Gracias por su pedido!"
+    showDialog(
+      true,
+      "Ya hemos enviado su pedido al restaurante. ¡Muchas gracias!"
     );
   }
+}
+
+function showDialog(show, message) {
+  const dialog = document.getElementById("dialogBox");
+  const msgbox = document.getElementById("mensaje");
+
+  msgbox.innerHTML = message;
+  show ? dialog.classList.remove("hidden") : dialog.classList.add("hidden");
 }
 
 generateProductCards();

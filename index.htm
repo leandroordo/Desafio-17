@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,147 +7,74 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="xcontainer">
-      <div class="xitem">Item 1</div>
-      <div class="xitem">
-        <div>
-          Item 2 adflkgh adlfjkgh aldfkjgh alkjdfgh lakdjfgh kaljrh gkjrhg
-          kleury ukerhg alkjdfgh akljdfgh kaljrh iuoerh lkjahg kljafdhg kaldjfhg
-          lkajdfhg kajdfhg kladjfhg kj h
+    <main>
+      <div id="dialogBox" class="overlay hidden">
+        <div class="dialog__content">
+          <button class="dialog__cerrar" onclick="showDialog(false, '')">
+            ✖
+          </button>
+          <img src="./img/pizza.png" alt="pizza-icon" />
+          <p id="mensaje">Mensaje</p>
+          <button class="dialog__aceptar" onclick="showDialog(false, '')">
+            Aceptar
+          </button>
         </div>
       </div>
-      <div class="xitem">Item 3</div>
-      <div class="xitem">Item 4</div>
-      <div class="xitem">Item 5</div>
-    </div>
-    <main>
+      <div class="logo">
+        <img src="./img/Logo.png" alt="PediYa" />
+      </div>
       <h1>PediYa</h1>
 
       <h2>Hacé tu pedido</h2>
-      <div class="menu__container">
-        <div class="menu__item-container">
-          <div class="menu__item">
-            <div class="menu__item-description">
-              <p class="menu__description-name">Empanadas de carne</p>
-              <p class="menu__description-description">
-                Riquísimas empanadas de carne al horno
-              </p>
-              <p class="menu__description-price">$875</p>
-              <div class="menu__description-button">
-                <a href="#" class="add-to-cart"></a>
-              </div>
-            </div>
-            <div class="menu__item-img">
-              <img src="./img/empanadas_carne.jpg" alt="empanadas" />
-            </div>
-          </div>
-        </div>
+      <div class="flex-container" id="menu-container"></div>
 
-        <div class="menu__item-container">
-          <div class="menu__item">
-            <div class="menu__item-description">
-              <p class="menu__description-name">Empanadas de carne</p>
-              <p class="menu__description-description">
-                Riquísimas empanadas de carne al horno, crocantes por fuera,
-                jugosas por dentro con mucho relleno y sabor a carne salteña
-              </p>
-              <p class="menu__description-price">$875</p>
-              <div class="menu__description-button">
-                <a href="#" class="add-to-cart"></a>
-              </div>
-            </div>
-            <div class="menu__item-img">
-              <img src="./img/empanadas_carne.jpg" alt="empanadas" />
-            </div>
-          </div>
-        </div>
-        <div class="menu__item-container">
-          <div class="menu__item">
-            <div class="menu__item-description">
-              <p class="menu__description-name">Empanadas de carne</p>
-              <p class="menu__description-description">
-                Riquísimas empanadas de carne al horno
-              </p>
-              <p class="menu__description-price">$875</p>
-              <div class="menu__description-button">
-                <a href="#" class="add-to-cart"></a>
-              </div>
-            </div>
-            <div class="menu__item-img">
-              <img src="./img/empanadas_carne.jpg" alt="empanadas" />
-            </div>
-          </div>
-        </div>
-        <div class="menu__item-container">
-          <div class="menu__item">
-            <div class="menu__item-description">
-              <p class="menu__description-name">Empanadas de carne</p>
-              <p class="menu__description-description">
-                Riquísimas empanadas de carne al horno
-              </p>
-              <p class="menu__description-price">$875</p>
-              <div class="menu__description-button">
-                <a href="#" class="add-to-cart"></a>
-              </div>
-            </div>
-            <div class="menu__item-img">
-              <img src="./img/empanadas_carne.jpg" alt="empanadas" />
-            </div>
-          </div>
-        </div>
-        <div class="menu__item-container">
-          <div class="menu__item">
-            <div class="menu__item-description">
-              <p class="menu__description-name">Empanadas de carne</p>
-              <p class="menu__description-description"></p>
-              <p class="menu__description-price">$875</p>
-              <div class="menu__description-button">
-                <a href="#" class="add-to-cart"></a>
-              </div>
-            </div>
-            <div class="menu__item-img">
-              <img src="./img/empanadas_carne.jpg" alt="empanadas" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mipedido__main">
+      <div class="flex-container-form">
         <div class="mipedido__container">
           <h2>Mi pedido</h2>
-          <div class="mipedido__details">
-            <div>Empanadas</div>
-            <div>12</div>
-            <div>$10.500</div>
-            <div>Pizza de muzzarela</div>
-            <div>1</div>
-            <div>$7.200</div>
-            <div class="total">Total</div>
-            <div></div>
-            <div>$10.700</div>
-          </div>
+          <div class="mipedido__details" id="order-container"></div>
         </div>
-        <div class="mipedido__form">
-          <div class="form__row">
+        <div class="mipedido__container">
+          <h2>Facturación y envío</h2>
+          <div class="form__container">
             <label for="nombre">Nombre</label>
-            <input type="text" required />
-          </div>
-          <div class="form__row">
-            <label for="nombre">Dirección</label>
-            <input type="text" required />
-          </div>
-          <div class="form__row">
-            <label for="nombre">Teléfono</label>
-            <input type="text" required />
-          </div>
-          <div class="form__row">
-            <label for="nombre">E-mail</label>
-            <input type="email" required />
-          </div>
-          <div class="form__row">
-            <a href="#" class="form__submit">Hacer pedido</a>
+            <input
+              id="nombre"
+              type="text"
+              onblur="validateString(this)"
+              required
+            />
+            <label for="direccion">Dirección</label>
+            <input
+              id="direccion"
+              type="text"
+              onblur="validateString(this)"
+              required
+            />
+            <label for="telefono">Teléfono</label>
+            <input
+              id="telefono"
+              type="text"
+              onblur="validateTelephone(this)"
+              required
+            />
+            <label for="email">E-mail</label>
+            <input
+              id="email"
+              type="email"
+              onblur="validateEmail(this)"
+              required
+            />
+            <input
+              type="button"
+              name="hacerpedido"
+              class="form__submit"
+              value="Hacer pedido"
+              onclick="procesarPedido()"
+            />
           </div>
         </div>
       </div>
     </main>
+    <script src="index.js"></script>
   </body>
 </html>
