@@ -14,117 +14,31 @@
       <h1>PediYa</h1>
 
       <h2>Hacé tu pedido</h2>
-      <div class="flex-container">
-        <div class="card">
-          <div class="details">
-            <div class="card__title">Empanadas de carne</div>
-            <div class="card__description">Empanadas al horno muy jugosas</div>
-            <div class="card__price">$650</div>
-          </div>
-          <img
-            src="./img/empanadas_carne.jpg"
-            class="card__image"
-            alt="empanadas de carne"
-          />
-        </div>
-        <div class="card">
-          <div class="details">
-            <div class="card__title">Empanadas de jamón y queso</div>
-            <div class="card__description">
-              Empanadas al horno con mucho queso
-            </div>
-            <div class="card__price">$650</div>
-          </div>
-          <div class="card__image">
-            <img
-              src="./img/empanadas_jyq.jpg"
-              class="card__image"
-              alt="empanadas de jamón y queso"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <div class="details">
-            <div class="card__title">Pizza de jamón y morrones</div>
-            <div class="card__description">Pizza a la piedra</div>
-            <div class="card__price">$9600</div>
-          </div>
-          <div class="card__image">
-            <img src="./img/pizza.jpg" class="card__image" alt="Pizza" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="details">
-            <div class="card__title">Pizza de calabresa</div>
-            <div class="card__description">Pizza a la piedra de calabresa</div>
-            <div class="card__price">$9900</div>
-          </div>
-          <div class="card__image">
-            <img
-              src="./img/pizza_calabresa.jpg"
-              class="card__image"
-              alt="Pizza"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <div class="details">
-            <div class="card__title">Sandwich de milanesa</div>
-            <div class="card__description">Completo, con papas fritas</div>
-            <div class="card__price">$6900</div>
-          </div>
-          <div class="card__image">
-            <img
-              src="./img/milanesa.jpg"
-              class="card__image"
-              alt="Papas fritas"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <div class="details">
-            <div class="card__title">Papas fritas</div>
-            <div class="card__description">Papas fritas por porción</div>
-            <div class="card__price">$1800</div>
-          </div>
-          <div class="card__image">
-            <img src="./img/papas.jpg" class="card__image" alt="Papas fritas" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="details">
-            <div class="card__title">Coca cola</div>
-            <div class="card__description">Gaseosa de 1 litro y medio</div>
-            <div class="card__price">$2500</div>
-          </div>
-          <div class="card__image">
-            <img src="./img/coca.jpg" class="card__image" alt="Coca cola" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="details">
-            <div class="card__title">Pepsi</div>
-            <div class="card__description">Gaseosa en lata</div>
-            <div class="card__price">$1700</div>
-          </div>
-          <div class="card__image">
-            <img src="./img/Pepsi.jpg" class="card__image" alt="Pepsi" />
-          </div>
-        </div>
-      </div>
+      <div class="flex-container" id="menu-container"></div>
 
-      <div class="flex-container">
+      <div class="flex-container-form">
         <div class="mipedido__container">
           <h2>Mi pedido</h2>
-          <div class="mipedido__details">
+          <div class="mipedido__details" id="order-container">
             <div>Empanadas</div>
-            <div>12</div>
+            <input
+              type="number"
+              class="mipedido__details-cantidad"
+              required
+              min="0"
+              max="99"
+            />
             <div class="mipedido__details-precio">$10.500</div>
             <div>Pizza de muzzarela</div>
-            <div>1</div>
+            <input
+              type="number"
+              class="mipedido__details-cantidad"
+              required
+              min="0"
+              max="99"
+            />
             <div class="mipedido__details-precio">$7.200</div>
             <div class="mipedido__details-total">Total</div>
-            <div></div>
             <div class="mipedido__details-total mipedido__details-precio">
               $10.700
             </div>
@@ -141,10 +55,16 @@
             <input type="text" required />
             <label for="nombre">E-mail</label>
             <input type="email" required />
-            <a href="#" class="form__submit">Hacer pedido</a>
+            <input
+              type="button"
+              name="hacerpedido"
+              class="form__submit"
+              value="Hacer pedido"
+            />
           </div>
         </div>
       </div>
     </main>
+    <script src="index.js"></script>
   </body>
 </html>
