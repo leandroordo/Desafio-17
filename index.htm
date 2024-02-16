@@ -8,15 +8,33 @@
   </head>
   <body>
     <main>
-      <div id="dialogBox" class="overlay hidden">
+      <div id="dialogConfirm" class="overlay hidden">
         <div class="dialog__content">
-          <button class="dialog__cerrar" onclick="showDialog(false, '')">
+          <button class="dialog__cerrar" onclick="showConfirmDialog(false, '')">
             ✖
           </button>
           <img src="./img/pizza.png" alt="pizza-icon" />
           <p id="mensaje">Mensaje</p>
-          <button class="dialog__aceptar" onclick="showDialog(false, '')">
+          <button
+            class="dialog__aceptar"
+            onclick="showConfirmDialog(false, '')"
+          >
             Aceptar
+          </button>
+        </div>
+      </div>
+      <div id="dialogOrderSummary" class="overlay hidden">
+        <div class="dialog__content dialog__content-big">
+          <button
+            class="dialog__cerrar"
+            onclick="showOrderSummaryDialog(false)"
+          >
+            ✖
+          </button>
+          <img src="./img/order.png" alt="order-icon" />
+          <div id="ordersummary" class="ordersummary"></div>
+          <button class="dialog__aceptar" onclick="confirmOrder()">
+            Confirmar
           </button>
         </div>
       </div>

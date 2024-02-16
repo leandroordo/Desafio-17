@@ -119,10 +119,7 @@ function generateOrderList(cart) {
     ).toFixed(2)}</div>`;
   });
 
-  orderHtml += `<div class="mipedido__details-total">Total</div>
-  <div class="mipedido__details-total mipedido__details-precio">
-    $ ${orderTotal(cart).toFixed(2)}
-  </div>`;
+  orderHtml += getTotalLine(cart);
 
   return orderHtml;
 }
@@ -136,7 +133,12 @@ function orderTotal(cart) {
 }
 
 function onCantidadChanged(input, productId) {
-  const valor = parseInt(input.value, 10);
+  var valor = 0;
+
+  if (input.value.trim().length > 0) {
+    valor = parseInt(input.value, 10);
+  }
+
   if (Number.isInteger(valor) && valor >= 0 && valor <= 99) {
     const productInCart = cart.find((c) => c.id === productId);
 
@@ -220,19 +222,56 @@ function procesarPedido() {
       window.alert("Asegúrese de haber agregado algún producto en su pedido");
       return;
     }
-    showDialog(
-      true,
-      "Ya hemos enviado su pedido al restaurante. ¡Muchas gracias!"
-    );
+
+    showOrderSummaryDialog(true);
   }
 }
 
-function showDialog(show, message) {
-  const dialog = document.getElementById("dialogBox");
+function showConfirmDialog(show, message) {
+  const dialog = document.getElementById("dialogConfirm");
   const msgbox = document.getElementById("mensaje");
 
   msgbox.innerHTML = message;
   show ? dialog.classList.remove("hidden") : dialog.classList.add("hidden");
+}
+
+function showOrderSummaryDialog(show) {
+  const dialog = document.getElementById("dialogOrderSummary");
+  const ordersummary = document.getElementById("ordersummary");
+
+  ordersummary.innerHTML = generateOrderSummary(cart);
+  show ? dialog.classList.remove("hidden") : dialog.classList.add("hidden");
+}
+
+function generateOrderSummary(cart) {
+  var orderHtml = "";
+
+  cart.forEach((item) => {
+    orderHtml += `<div>${item.cantidad}</div>
+    <div>${item.nombre}</div>
+    <div class="mipedido__details-precio">${(
+      item.precio * item.cantidad
+    ).toFixed(2)}</div>`;
+  });
+
+  orderHtml += getTotalLine(cart);
+
+  return orderHtml;
+}
+
+function getTotalLine(cart) {
+  return `<div class="mipedido__details-total">Total</div>
+  <div class="mipedido__details-total mipedido__details-precio">
+    $ ${orderTotal(cart).toFixed(2)}
+  </div>`;
+}
+
+function confirmOrder() {
+  showOrderSummaryDialog(false);
+  showConfirmDialog(
+    true,
+    "Ya hemos enviado su pedido al restaurante. ¡Muchas gracias!"
+  );
 }
 
 generateProductCards();
